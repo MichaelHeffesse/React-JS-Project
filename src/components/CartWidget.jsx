@@ -1,7 +1,7 @@
 import React from "react";
 
 
-CartWidget = () => {
+const CartWidget = () => {
     return (
         <img src="./img/shopping.png" alt="Shopping cart" />
     );
