@@ -8,12 +8,15 @@ import { ItemCount } from './components/ItemCount';
 
 
 function App() {
+  const Usuario = {user: "Michael", greetings:"Bienvenido a Digital Hike Up"}
+  const onAdd = (count) => {
+    <p>Sumaste {count} al carrito</p>
+  }
   return (
     <>
       <NavBar/>
-      <CartWidget/>
-      <ItemCount/>
-      <ItemListContainer/>
+      <ItemCount inicial={1} max={10} onAdd={onAdd}/>
+      <ItemListContainer greetings={Usuario} user={Usuario}/>
 
     </>
 
