@@ -1,12 +1,12 @@
 import React from "react";
+import Item from "./Item";
 
-
-const ItemList = ({coins}) => {
+const ItemList = ({serv}) => {
     return (
         <div style={{display:"flex", flexwrap:"wrap"}}>
-            {coins?.map(coins => <Item key={coins.symbol} personaje={coins}/>)}
+            {serv?.map(serv => <Item serv={serv}/>)}
         </div>
     );
 }
 
-export {ItemList};
+export default ItemList;

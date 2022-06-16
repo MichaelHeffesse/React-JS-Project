@@ -1,20 +1,13 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 
 
 
 const ItemListContainer = ({greetings,user}) => {
-  const [coins, setCoins] = useState([])
 
-  useEffect(() =>{
-    fetch('https://api.coinranking.com/v2/coins')
-      .then(res => res.json())
-      .catch(e => console.log("Error: ", e))
-      .then(res => setCoins(res.results))
 
-  }, [])
   return (
       <>
-        <h1>{greetings}</h1>
+        <h6>{greetings}</h6>
         <p>Hola {user}</p>
       </>
 
@@ -22,4 +15,4 @@ const ItemListContainer = ({greetings,user}) => {
 }
 
 
-export {ItemListContainer};
+export default ItemListContainer;

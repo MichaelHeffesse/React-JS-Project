@@ -2,56 +2,62 @@ import React, { useState, useEffect } from 'react'
 
 
 
-const ItemCount = ({inicial, max, onAdd}) => {
+const ItemCount = ({pedido, stock, onAdd}) => {
 
-  const [count, setCount] = useState(inicial);
+  const [count, setCount] = useState(pedido);
 
   const sumar = () => {
-    if (count<max) {
-      setCount(count +1)
-    }else {
-      console.log(max)
-    }
+    if (count<stock) {
+      setCount(count + 1)
+    } else {
+      alert("Limite de consumo alcanzado!")
+    };
 
   }
 
   const restar = () => {
-    count<inicial ? setCount(count - 1) : console.log(inicial)
+
+    count>pedido ? setCount(count - 1) : alert("No puedes seguir restando!");
+
   }
 
   const reset = () => {
-    setCount(inicial)
+
+    setCount(pedido);
+
   }
+
+
   return (
       <>
-        <div style={{ border: '1px solid red', height: '200px', backgroundColor: '#' + ((Math.random() * 0xffffff) << 0).toString(16).padStart(6, '0') }}>
-        Cantidad de productos seleccionados: {count = max ? max: count<inicial ? inicial: count}
+        <div>
+        <h2>Cantidad de productos seleccionados : {count}</h2>
 
-        <button
-          onClick={
-            sumar
-          }>
-          Añadir
-        </button>
-        <button
-          onClick={
-            restar
-          }>
-          Quitar
-        </button>
-        <button
-          onClick={
-            reset
-          }>
-          Resetear
-        </button>
-        <button
-          onClick={ () => {
-            onAdd(count)
-          }
-          }>
-          Agregar al carrito
-        </button>
+          <button
+            onClick={
+              sumar
+            }>
+            +
+          </button>
+          <button
+            onClick={
+              restar
+            }>
+            -
+          </button>
+          <button
+            onClick={
+              reset
+            }>
+            Reset
+          </button>
+          <button
+            onClick={ () => {
+              onAdd(count)
+            }
+            }>
+            Agregar al carrito
+          </button>
         </div>
       </>
 
@@ -59,4 +65,4 @@ const ItemCount = ({inicial, max, onAdd}) => {
 }
 
 
-export {ItemCount};
+export default ItemCount;

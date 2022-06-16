@@ -4,18 +4,18 @@ import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 
 
-const Item = ({coins}) => {
+const Item = ({serv}) => {
 
-    const { symbol, price, marketCap} = coins
+    const { producto, descripcion, precio} = serv
     return (
         <>
             <Card style={{ width: '18rem' }}>
             <Card.Img variant="top" src="holder.js/100px180" />
             <Card.Body>
-                <Card.Title>{symbol}</Card.Title>
+                <Card.Title>{producto}</Card.Title>
                 <Card.Text>
-                Precio: {price}
-                Capitalizacion de mercado: {marketCap}
+                Precio: {precio}
+                Descripcion: {descripcion}
                 </Card.Text>
                 <Button variant="primary">Detalles</Button>
             </Card.Body>
@@ -24,4 +24,4 @@ const Item = ({coins}) => {
     );
 }
 
-export {Item};
+export default Item;
